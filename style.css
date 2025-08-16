@@ -1,0 +1,154 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --dark-color: #2c3e50;
+  --light-color: #ecf0f1;
+  --spacing: 1rem;
+  --border-radius: 5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: var(--light-color);
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: 100%;
+}
+
+.header {
+  background-color: #8A7D7B;
+  color: white;
+  padding: var(--spacing);
+  text-align: center;
+}
+
+.header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.nav {
+  background-color: var(--dark-color);
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  padding: var(--spacing);
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s;
+}
+
+.nav-list a:hover {
+  background-color: var(--primary-color);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing);
+  padding: var(--spacing);
+}
+
+
+.sidebar {
+  background-color: #f8f9fa;
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.sidebar-list {
+  list-style: none;
+}
+
+.sidebar-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+.card {
+  background-color: white;
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.footer {
+  background-color: var(--dark-color);
+  color: white;
+  text-align: center;
+  padding: var(--spacing);
+}
+
+
+@media (min-width: 600px) {
+  .content {
+    grid-template-columns: 200px 1fr;
+  }
+  
+  .articles {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    flex: 1 1 calc(50% - var(--spacing));
+    min-width: 200px;
+  }
+  
+  .nav-list {
+    justify-content: flex-start;
+    gap: var(--spacing);
+  }
+}
+
+@media (min-width: 900px) {
+  .articles {
+    flex-wrap: nowrap;
+  }
+  
+  .card {
+    flex: 1;
+  }
+  
+  .nav-list {
+    justify-content: center;
+  }
+}
+
+
+@media print {
+  .nav, .sidebar {
+    display: none;
+  }
+  
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
